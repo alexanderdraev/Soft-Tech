@@ -2,6 +2,26 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class p22_IntersectionOfCircles {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        int[] input = Arrays.stream(scanner.nextLine().split("\\s")).mapToInt(Integer::parseInt).toArray();
+        int[] input2 = Arrays.stream(scanner.nextLine().split("\\s")).mapToInt(Integer::parseInt).toArray();
+
+
+        Circle circle1 = ReadCircle(input);
+        Circle circle2 = ReadCircle(input2);
+
+        if(TheyIntersect(circle1, circle2))
+        {
+            System.out.println("Yes");
+        }
+        else
+        {
+            System.out.println("No");
+        }
+
+    }
     static class Circle {
         private Point Center;
         private double Radius;
@@ -58,33 +78,8 @@ public class p22_IntersectionOfCircles {
             Y = y;
         }
     }
-    public static void main(String[] args) {
-
-        Circle circle1 = ReadCircle();
-        Circle circle2 = ReadCircle();
-
-        if(TheyIntersect(circle1, circle2))
-        {
-            System.out.println("Yes");
-        }
-        else
-        {
-            System.out.println("No");
-        }
-
-    }
-    private static Circle ReadCircle()
+    private static Circle ReadCircle(int[] input)
     {
-        Scanner scanner = new Scanner(System.in);
-        //int[] input = Arrays.stream(scanner.nextLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
-
-        String inpString = scanner.nextLine();
-        String[] inpArr = inpString.split("\\s+");
-        int[] input = new int[inpArr.length];
-        for (int i = 0; i < inpArr.length; i++) {
-            input[i] = Integer.parseInt(inpArr[i]);
-        }
-
         Point center = new Point();
         center.setX(input[0]);
         center.setY(input[1]);
