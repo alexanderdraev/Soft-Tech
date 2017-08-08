@@ -3,38 +3,58 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.Scanner;
 
-/**
- * Created by Marto on 7.8.2017 г..
- */
 public class p16_URLParser {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         String input = scanner.nextLine();
+        String protocol = "";
+        String server = "";
+        String resource = "";
+        String tempSpl = "";
+        StringBuilder sb = new StringBuilder();
 
-        String pattern = "^(?<protocol>([A-Za-z0-9.]+))*(:\\/\\/)*(?<server>([A-Za-z0-9.]+))(\\/)*((?<resource>.+))*$";
-        Pattern r = Pattern.compile(pattern);
+        String[] ifProtocol = input.split("://");
+        if(ifProtocol.length == 1){
+            tempSpl = ifProtocol[0];
+            String[] secondSpl = tempSpl.split("/");
 
+            if(secondSpl.length > 1){
+                server = secondSpl[0];
 
-        Matcher m = r.matcher(input);
-        if (m.find( )) {
-            String protocol = m.group("protocol");
-            String server = m.group("server");
-            String resource = m.group("resource");
-
-            if(protocol == null){
-               protocol = "";
+                for (int i = 1; i < secondSpl.length; i++) {
+                    if(i == 1){
+                        sb.append(secondSpl[i]);
+                    }else{
+                        sb.append("/" + secondSpl[i]);
+                    }
+                }
+                resource = sb.toString();
+            }else if(secondSpl.length == 1){
+                server = secondSpl[0];
             }
-            if(resource == null){
-                resource = "";
-            }
-            if(server == null){
-                server = "";
-            }
+        }else if(ifProtocol.length == 2){
+            protocol = ifProtocol[0];
+            tempSpl = ifProtocol[1];
 
-            System.out.println("[protocol] = " + '"' + protocol + '"' );
-            System.out.println("[server] = " + '"' + server + '"' );
-            System.out.println("[resource] = " + '"' + resource + '"' );
+            String[] secondSpl = tempSpl.split("/");
+            if(secondSpl.length > 1){
+                server = secondSpl[0];
+
+                for (int i = 1; i < secondSpl.length; i++) {
+                    if(i == 1){
+                        sb.append(secondSpl[i]);
+                    }else{
+                        sb.append("/" + secondSpl[i]);
+                    }
+                }
+                resource = sb.toString();
+            }else if(secondSpl.length == 1){
+                server = secondSpl[0];
+            }
         }
+        System.out.println("[protocol] = " + '"' + protocol + '"' );
+        System.out.println("[server] = " + '"' + server + '"' );
+        System.out.println("[resource] = " + '"' + resource + '"' );
     }
 }
