@@ -1,3 +1,4 @@
+E:\TODOList\TODOList\obj\Debug\TODOList.csprojResolveAssemblyReference.cache
 E:\TODOList\TODOList\bin\ApplicationInsights.config
 E:\TODOList\TODOList\bin\roslyn\csc.exe
 E:\TODOList\TODOList\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -77,6 +78,5 @@ E:\TODOList\TODOList\bin\Microsoft.Owin.Security.OAuth.xml
 E:\TODOList\TODOList\bin\Microsoft.Owin.Security.Google.xml
 E:\TODOList\TODOList\bin\Microsoft.Owin.Security.Twitter.xml
 E:\TODOList\TODOList\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-E:\TODOList\TODOList\obj\Debug\TODOList.csprojResolveAssemblyReference.cache
 E:\TODOList\TODOList\obj\Debug\TODOList.dll
 E:\TODOList\TODOList\obj\Debug\TODOList.pdb
